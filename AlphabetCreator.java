@@ -1,7 +1,9 @@
 package codageHuffman;
 
-import java.util.Hashtable;
 import java.util.Map.Entry;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class AlphabetCreator {
@@ -27,6 +29,7 @@ public class AlphabetCreator {
 		this.alphabet.forEach(
 	            (k, v) -> System.out.println("Key : " + k + ", Value : " + v));
 	}
+	
 
 	public Hashtable<String, Integer> getAlphabet() {
 		return alphabet;

@@ -1,16 +1,19 @@
 package codageHuffman;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
+		String fileName = "alice.txt";
+		
 		System.out.println("Hello World");
 		
-		FileReader fReader = new FileReader("C:\\Users\\Gabriel\\eclipse-workspace\\Code de Huffman\\src\\codageHuffman\\textesimple.txt");
-		
-		
+		FileReader fReader = new FileReader(fileName);
 		
 		ArrayList<String> data = fReader.readFile();
 		
@@ -23,9 +26,10 @@ public class Main {
 		
 		ac.affiche();
 		
+		HuffmanMaker hf = new HuffmanMaker(ac.getAlphabet(), fileName);
+		System.out.println(hf.getBinaryValues());
+
 		
-		
-		HuffmanMaker hf = new HuffmanMaker(ac.getAlphabet());
 	}
 
 }
