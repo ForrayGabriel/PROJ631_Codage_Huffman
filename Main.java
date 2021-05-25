@@ -9,11 +9,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		String fileName = "alice.txt";
-		
+		String fileName = "textesimple.txt";
 
 		HuffmanMaker hf = new HuffmanMaker(fileName);
-		System.out.println(hf.getBinaryValues());
 
 		
 	}

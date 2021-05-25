@@ -15,7 +15,7 @@ public class FreqWriter {
 	public void writeFreq(PriorityQueue<Node> q) {
 		
 		String fName = this.fileName.substring(0,this.fileName.length()-4); 
-		System.out.println(fName);
+
 		
 		try {
 			FileWriter file = new FileWriter(fName+"_freq.txt");
