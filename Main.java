@@ -11,22 +11,8 @@ public class Main {
 		
 		String fileName = "alice.txt";
 		
-		System.out.println("Hello World");
-		
-		FileReader fReader = new FileReader(fileName);
-		
-		ArrayList<String> data = fReader.readFile();
-		
-		AlphabetCreator ac = new AlphabetCreator();
-		
-		for (String s : data) {
-			
-			ac.addString(s);
-		}
-		
-		ac.affiche();
-		
-		HuffmanMaker hf = new HuffmanMaker(ac.getAlphabet(), fileName);
+
+		HuffmanMaker hf = new HuffmanMaker(fileName);
 		System.out.println(hf.getBinaryValues());
 
 		

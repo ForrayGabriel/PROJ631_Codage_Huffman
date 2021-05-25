@@ -2,6 +2,7 @@ package codageHuffman;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -16,9 +17,25 @@ public class HuffmanMaker {
 	
 	private Hashtable<String, String> binaire = new Hashtable<String, String>();
 	
-	public HuffmanMaker(Hashtable<String, Integer> alphabet, String fName) {
+	private Hashtable<String, Integer> alphabet;
+	
+	public HuffmanMaker(String fName) {
 		
 		this.fileName = fName;
+		
+		FileReader fReader = new FileReader(this.fileName);
+		
+		ArrayList<String> data = fReader.readFile();
+		
+		AlphabetCreator ac = new AlphabetCreator();
+		
+			for (String s : data) {
+				
+				ac.addString(s);
+			}
+		
+		this.alphabet = ac.getAlphabet();
+		
 		
 		queue = new PriorityQueue<Node>(alphabet.size(), new NodeComparator());
 		PriorityQueue<Node> tempQueue = new PriorityQueue<Node>(alphabet.size(), new NodeComparator());
@@ -30,8 +47,9 @@ public class HuffmanMaker {
 			tempQueue.add(new Node(alphabet.get(key), key, null, null));
 		}
 		
+		FreqWriter fw = new FreqWriter(this.fileName);
 		
-		this.writeFreq(tempQueue);
+		fw.writeFreq(tempQueue);
 		
 		this.racine = null;
 		
@@ -89,25 +107,5 @@ public class HuffmanMaker {
         setValues(n.getRight(), s + "1");
     }
 	
-	public void writeFreq(PriorityQueue<Node> q) {
-		
-		String fName = fileName.substring(0,this.fileName.length()-4); 
-		System.out.println(fName);
-		
-		try {
-			FileWriter file = new FileWriter(fName+"_freq.txt");
-			file.write(q.size()+"\n");
-		
-			while(q.size()>0) {
-				Node n = q.poll();
-				file.write(""+ n.getValue() +" "+n.getFrequency()+ "\n");
-			}
-		
-		file.close();
-		} catch (IOException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
-		    }
-		
-	}
+	
 }
