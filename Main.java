@@ -22,7 +22,10 @@ public class Main {
 		}
 		
 		ac.affiche();
-		ac.getAlphabet();
+		
+		
+		
+		HuffmanMaker hf = new HuffmanMaker(ac.getAlphabet());
 	}
 
 }
