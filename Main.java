@@ -22,10 +22,7 @@ public class Main {
 		}
 		
 		ac.affiche();
-		
-		
-
-		
+		ac.getAlphabet();
 	}
 
 }
