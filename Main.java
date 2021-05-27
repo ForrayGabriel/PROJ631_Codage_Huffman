@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		String fileName = "textesimple.txt";
+		String fileName = "extraitalice.txt";
 
 		HuffmanMaker hf = new HuffmanMaker(fileName);
 

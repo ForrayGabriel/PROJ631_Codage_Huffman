@@ -15,6 +15,8 @@ public class FileReader {
 	public ArrayList<String> readFile() {
 		ArrayList<String> texts = new ArrayList<String>();
 		File myFile = new File(this.fPath);
+		
+		
 		try {
 			Scanner myReader = new Scanner(myFile);
 			while (myReader.hasNextLine()) {

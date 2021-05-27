@@ -65,9 +65,13 @@ public class HuffmanMaker {
 			queue.add(intermediaire);	
 		}
 		
-		/*CompWriter cw = new CompWriter(this.fileName,this.getBinaryValues());
+		CompWriter cw = new CompWriter(this.fileName,this.getBinaryValues());
 		
-		cw.write();*/
+		cw.write();
+		
+		CompRateCalculator compRateCalc = new CompRateCalculator(this.fileName.substring(0,this.fileName.length()-4));
+		
+		compRateCalc.getCompressionRate();
 	}
 
 	
@@ -91,7 +95,7 @@ public class HuffmanMaker {
                    == null
             && n.getValue().length() == 1) {
  
-            System.out.println(n.getValue() + ":" + s);
+           
             
             this.binaire.put(n.getValue(), s);
  

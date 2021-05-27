@@ -1,8 +1,11 @@
 package codageHuffman;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.Hashtable;
 
 public class CompWriter {
@@ -20,14 +23,16 @@ public class CompWriter {
 		
 		String fName = this.fileName.substring(0,this.fileName.length()-4); 
 		
-		String toWrite = this.makeString();
+		String strToWrite = this.makeString();
+		BitSet bitsToWrite = this.makeBitSet(strToWrite);
 		
 		try {
-			FileWriter file = new FileWriter(fName+"_comp.txt");
 			
-			file.write(toWrite);
-		
-			file.close();
+			FileOutputStream fos = new FileOutputStream(new File(fName+"_comp.bin"));
+
+			fos.write(bitsToWrite.toByteArray());
+			
+			fos.close();
 		} catch (IOException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
@@ -35,7 +40,7 @@ public class CompWriter {
 		
 	}
 
-	private String makeString() {
+	public String makeString() {
 		
 		String res = "";
 		
@@ -48,12 +53,23 @@ public class CompWriter {
 			for (String s : data) {
 				
 				for (char ch: s.toCharArray()) {
-					System.out.println(ch + " " + this.table.get(String.valueOf(ch)));
 					res += this.table.get(String.valueOf(ch));
 				}
 			}
-
+		System.out.println(res);
 		return res;
+	}
+	
+	public BitSet makeBitSet(String str) {
+		BitSet bitSet = new BitSet(str.length());
+		int bitcounter = 0;
+		for(Character c : str.toCharArray()) {
+		    if(c.equals('1')) {
+		        bitSet.set(bitcounter);
+		    }
+		    bitcounter++;
+		}
+		return bitSet;
 	}
 	
 	
