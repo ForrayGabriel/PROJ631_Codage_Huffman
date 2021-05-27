@@ -65,9 +65,9 @@ public class HuffmanMaker {
 			queue.add(intermediaire);	
 		}
 		
-		CompWriter cw = new CompWriter(this.fileName,this.getBinaryValues());
+		/*CompWriter cw = new CompWriter(this.fileName,this.getBinaryValues());
 		
-		cw.write();
+		cw.write();*/
 	}
 
 	
