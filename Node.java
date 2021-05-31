@@ -1,18 +1,32 @@
 package codageHuffman;
 
+/**
+ * Class representing a Node object
+ * 
+ * @author Gabriel
+ *
+ */
 public class Node {
-	
+
 	private int frequency;
 	private String value;
-	
+
 	private Node left;
 	private Node right;
-	
-	public Node(int frequency, String value, Node l, Node r) {
+
+	/**
+	 * Constructor of a Node
+	 * 
+	 * @param frequency The number of occurences of the letter
+	 * @param value     The letter associated to the Node
+	 * @param left      Left child of the Node
+	 * @param r         Right child of the Node
+	 */
+	public Node(int frequency, String value, Node left, Node right) {
 		this.frequency = frequency;
 		this.value = value;
-		this.left = l;
-		this.right = r;
+		this.left = left;
+		this.right = right;
 	}
 
 	public int getFrequency() {
@@ -51,8 +65,5 @@ public class Node {
 	public String toString() {
 		return "Node [frequency=" + frequency + ", value=" + value + "]";
 	}
-	
-	
-	
 
 }
