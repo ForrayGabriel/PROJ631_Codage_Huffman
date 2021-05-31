@@ -16,10 +16,12 @@ public class FreqWriter {
 		
 		String fName = this.fileName.substring(0,this.fileName.length()-4); 
 
-		
+		int size = q.size();
+				
 		try {
 			FileWriter file = new FileWriter(fName+"_freq.txt");
-			file.write(q.size()+"\n");
+			
+			file.write(size+"\n");
 		
 			while(q.size()>0) {
 				Node n = q.poll();
@@ -31,6 +33,7 @@ public class FreqWriter {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
+		
 		
 	}
 	

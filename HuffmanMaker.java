@@ -67,11 +67,19 @@ public class HuffmanMaker {
 		
 		CompWriter cw = new CompWriter(this.fileName,this.getBinaryValues());
 		
-		cw.write();
+		String strToWrite = cw.makeString();
+		
+		cw.write(strToWrite);
 		
 		CompRateCalculator compRateCalc = new CompRateCalculator(this.fileName.substring(0,this.fileName.length()-4));
 		
-		compRateCalc.getCompressionRate();
+		float compRate = compRateCalc.getCompressionRate();
+		
+		MoyBitCalculator moyBitCalc = new MoyBitCalculator();
+		
+		float moyBit = moyBitCalc.getMoyBit(strToWrite, ac.getNbChar());
+		
+		System.out.println(moyBit);
 	}
 
 	
@@ -102,11 +110,6 @@ public class HuffmanMaker {
             return;
         }
  
-        // if we go to left then add "0" to the code.
-        // if we go to the right add"1" to the code.
- 
-        // recursive calls for left and
-        // right sub-tree of the generated tree.
         setValues(n.getLeft(), s + "0");
         setValues(n.getRight(), s + "1");
     }

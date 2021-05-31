@@ -19,11 +19,10 @@ public class CompWriter {
 		this.table = table;
 	}
 
-	public void write() {
+	public void write(String strToWrite) {
 		
 		String fName = this.fileName.substring(0,this.fileName.length()-4); 
 		
-		String strToWrite = this.makeString();
 		BitSet bitsToWrite = this.makeBitSet(strToWrite);
 		
 		try {
