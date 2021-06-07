@@ -9,7 +9,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		new InputFrame();
+		FileSelecter fs = new FileSelecter();
+		new HuffmanMaker(fs.getPath());
 
 	}
 

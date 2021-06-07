@@ -1,12 +1,8 @@
 package codageHuffman;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.PriorityQueue;
-import java.util.Scanner;
 import java.util.Set;
 
 import javax.swing.JFrame;
