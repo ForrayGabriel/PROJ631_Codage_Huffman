@@ -9,9 +9,6 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//FileSelecter fs = new FileSelecter();
-		//new HuffmanMaker(fs.getPath());
-
 		new DragAndDropFrame();
 		
 	}
